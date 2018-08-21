@@ -23,5 +23,38 @@
   "bugs": {
     "url": "https://github.com/camilofernandesalves/easy-save/issues"
   },
-  "homepage": "https://github.com/camilofernandesalves/easy-save#readme"
+  "homepage": "https://github.com/camilofernandesalves/easy-save#readme",
+  "dependencies": {
+    "aws-sdk": "^2.297.0"
+  },
+  "files": [
+    "lib/index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-istanbul": "^0.12.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean": "^0.4.0",
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.1",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1",
+    "mocha-junit-reporter": "^1.17.0",
+    "nyc": "^11.2.1",
+    "should": "^13.1.2",
+    "supertest": "^3.0.0"
+  }
 }
