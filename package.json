@@ -36,6 +36,7 @@
     "node": ">= 0.10"
   },
   "devDependencies": {
+    "assert": "^1.4.1",
     "babel-core": "^6.26.3",
     "babel-istanbul": "^0.12.2",
     "babel-preset-env": "^1.7.0",
