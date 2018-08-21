@@ -1,0 +1,27 @@
+{
+  "name": "easy-save",
+  "version": "1.0.0",
+  "description": "Save file on disk or AWS S3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilofernandesalves/easy-save.git"
+  },
+  "keywords": [
+    "save",
+    "file",
+    "aws",
+    "s3",
+    "disk",
+    "base64"
+  ],
+  "author": "Camilo Fernandes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camilofernandesalves/easy-save/issues"
+  },
+  "homepage": "https://github.com/camilofernandesalves/easy-save#readme"
+}
