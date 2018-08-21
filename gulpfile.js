@@ -11,7 +11,7 @@ gulp.task('clear', () => {
 });
 
 gulp.task('build', ['clear'], () =>
-  gulp.src(['src/index.js'])
+  gulp.src(['src/save-file.js'])
     .pipe(babel({
       presets: ['es2015'],
       compact: false
