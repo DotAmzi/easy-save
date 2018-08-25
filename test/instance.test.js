@@ -1,4 +1,4 @@
-import EasySave from '../lib/index';
+import EasySave from '../lib/save-file';
 import should from 'should';
 import {expect} from 'chai';
 
@@ -8,26 +8,33 @@ describe("Test to Construct Object", done => {
     var newConnect = new EasySave({
       AWS_S3_ACCESS_KEY: 'any',
       AWS_S3_SECRET: 'any'
-    }, 'aws', 'targetFolder');
+    }, 'aws', {
+      bucket: 'BucketExample',
+      folder: 'Folder'
+    });
     
     const local = newConnect.getLocal();
     const params = newConnect.getParams();
     const target = newConnect.getTarget();
-
     local.should.equal('aws');
     params.should.have.property('config');
-    target.should.equal('targetFolder');
+    target.bucket.should.equal('BucketExample');
+    target.folder.should.equal('Folder');
     done();
   });
 
   it("Should create object with success to Local", done => {
-    var newConnect = new EasySave({}, 'local', 'targetFolder');
+    var newConnect = new EasySave({}, 'local', {
+      bucket: 'BucketExample',
+      folder: 'Folder'
+    });
     
     const local = newConnect.getLocal();
     const target = newConnect.getTarget();
 
     local.should.equal('local');
-    target.should.equal('targetFolder');
+    target.bucket.should.equal('BucketExample');
+    target.folder.should.equal('Folder');
     done();
   });
 
