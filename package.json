@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/camilofernandesalves/easy-save#readme",
   "dependencies": {
-    "aws-sdk": "^2.297.0"
+    "aws-sdk": "^2.297.0",
+    "is-base64": "0.0.6",
+    "mock-aws-s3": "^3.0.0"
   },
   "files": [
     "lib/index.js",
