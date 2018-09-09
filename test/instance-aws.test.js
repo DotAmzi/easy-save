@@ -24,17 +24,14 @@ describe("Test to Construct Object", done => {
   });
 
   it("Should create object with success to Local", done => {
-    var newConnect = new EasySave({}, 'local', {
-      bucket: 'BucketExample',
-      folder: 'Folder'
-    });
+    var newConnect = new EasySave('/', 'local', 'test');
     
     const local = newConnect.getLocal();
+    const params = newConnect.getParams();
     const target = newConnect.getTarget();
-
     local.should.equal('local');
-    target.bucket.should.equal('BucketExample');
-    target.folder.should.equal('Folder');
+    params.bucket.should.equal('/');
+    target.folder.should.equal('test');
     done();
   });
 

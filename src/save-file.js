@@ -11,10 +11,10 @@ export default class EasySave {
     if(params === undefined) {
       throw new Error('First parameter is required');
     }
-    this._local = local;
+    this._type = local;
     this._target = target;
 
-    if (this._local === 'aws') {
+    if (this._type === 'aws') {
       if(
         params.AWS_S3_ACCESS_KEY === undefined ||
         params.AWS_S3_ACCESS_KEY === null ||
@@ -57,7 +57,7 @@ export default class EasySave {
   
         var date = new Date();
         var ms = date.getTime();
-        if(this._local === 'aws') {
+        if(this. _type === 'aws') {
           let params = {
             Bucket: `${this._target.bucket}/${this._target.folder}`,
             Key: `${ms}.${ext}`,
@@ -74,8 +74,8 @@ export default class EasySave {
               resolve(data.Location);
             }
           });
-        } else if (this._local === 'local') {
-          const folder = os.homedir() + '/uploads';
+        } else if (this. _type === 'local') {
+          const folder = this._params ? this._params : os.homedir() + '/uploads';
           const destine = `${folder}/${this._target}`;
           if (!fs.existsSync(folder)) {
             fs.mkdirSync(folder);
@@ -83,7 +83,7 @@ export default class EasySave {
           if (!fs.existsSync(destine)) {
             fs.mkdirSync(destine);
           }
-          fs.writeFile(`${destine}/${ms}.${input.file.ext}`, input.file.hash, {encoding: 'base64'}, (err) => {
+          fs.writeFile(`${destine}/${ms}.${input.file.ext}`, input.file.hash, {encoding: type}, err => {
             if (err) {
               reject('Error to write file on disk', err);
             } else {
@@ -96,8 +96,8 @@ export default class EasySave {
   
   };
   
-  getLocal () {
-    return this._local;
+  getType () {
+    return this._type;
   };
   
   getTarget () {
@@ -108,8 +108,8 @@ export default class EasySave {
     return this._params;
   }
   
-  setLocal (local) {
-    this._local = local;
+  setType (local) {
+    this._type = local;
   }
   
   setTarget (target) {
