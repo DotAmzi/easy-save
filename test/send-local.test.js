@@ -3,28 +3,21 @@ import pic from './image';
 import should from 'should';
 import {expect} from 'chai';
 
-const newConnect = new EasySave({
-  AWS_S3_ACCESS_KEY: 'any',
-  AWS_S3_SECRET: 'any'
-}, 'aws', {
-  bucket: 'BucketExample',
-  folder: 'Folder'
-});
+const newConnect = new EasySave('.', 'local', 'test');
 
-describe("Test to save aws file", done => {
+describe("Test to save local file", done => {
     
-  it("Should send file to aws with success", done => {
+  it("Should send file to local with success", done => {
     newConnect.save(pic)
       .then(res => {
+
         return res;
       })
       .catch (err => {
         return err;
       })
       .then(res => {
-        let returnValue = res.split('/');
-        returnValue = `${returnValue[0]}/${returnValue[1]}/`;
-        returnValue.should.equal('BucketExample/Folder/');
+        res.substr(0, 7).should.equal('./test/');
         done();
       });
   });

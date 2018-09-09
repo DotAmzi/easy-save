@@ -13,7 +13,7 @@ describe("Test to Construct Object", done => {
       folder: 'Folder'
     });
     
-    const local = newConnect.getLocal();
+    const local = newConnect.getType();
     const params = newConnect.getParams();
     const target = newConnect.getTarget();
     local.should.equal('aws');
@@ -26,12 +26,12 @@ describe("Test to Construct Object", done => {
   it("Should create object with success to Local", done => {
     var newConnect = new EasySave('/', 'local', 'test');
     
-    const local = newConnect.getLocal();
+    const local = newConnect.getType();
     const params = newConnect.getParams();
     const target = newConnect.getTarget();
     local.should.equal('local');
-    params.bucket.should.equal('/');
-    target.folder.should.equal('test');
+    params.should.equal('/');
+    target.should.equal('test');
     done();
   });
 

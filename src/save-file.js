@@ -83,11 +83,11 @@ export default class EasySave {
           if (!fs.existsSync(destine)) {
             fs.mkdirSync(destine);
           }
-          fs.writeFile(`${destine}/${ms}.${input.file.ext}`, input.file.hash, {encoding: type}, err => {
+          fs.writeFile(`${destine}/${ms}.${ext}`, file, {encoding: type}, err => {
             if (err) {
               reject('Error to write file on disk', err);
             } else {
-              resolve(`${destine}/${ms}.${input.file.ext}`);
+              resolve(`${destine}/${ms}.${ext}`);
             }
           });
         } 
