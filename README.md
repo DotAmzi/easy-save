@@ -120,4 +120,4 @@ newConnect.setParams('New Value');
 Does not return value
 
 ## Questions
-https://github.com/camilofernandesalves/easy-save/issues
+https://github.com/DotAmzi/easy-save/issues
