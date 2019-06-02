@@ -3,7 +3,7 @@
 
 ![](https://img.shields.io/badge/NodeJS-4.0.0-green.svg)
 ![](https://img.shields.io/badge/license-MIT-green.svg)
-![](https://travis-ci.org/DotAmzi/easy-save.svg?branch=master)
+[![Build Status](https://travis-ci.org/DotAmzi/easy-save.svg?branch=master)](https://travis-ci.org/DotAmzi/easy-save)
 
 Easy Save is a wrapper for saving files to local disk or AWS S3
 **Currently receives only base64 file**
