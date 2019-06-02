@@ -1,1 +1,1 @@
-var lib = require('../lib/save-file.js');
+import './lib/save-file.js';
