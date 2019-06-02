@@ -1,6 +1,6 @@
 {
   "name": "easy-save",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Save file on disk or AWS S3",
   "main": "./lib/save-file.js",
   "scripts": {
