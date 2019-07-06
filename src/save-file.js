@@ -121,4 +121,4 @@ class EasySave {
   }
 }
 
-module.exports = EasySave;
+export default EasySave;
