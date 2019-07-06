@@ -6,7 +6,7 @@ import isBase64 from 'is-base64';
 
 var instance = {};
 
-export default class EasySave {
+class EasySave {
   constructor(params, local = 'aws', target = '') {
     if(params === undefined) {
       throw new Error('First parameter is required');
@@ -120,3 +120,5 @@ export default class EasySave {
     this._params = params;
   }
 }
+
+module.exports = EasySave;
