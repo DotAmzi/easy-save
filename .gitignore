@@ -62,4 +62,4 @@ typings/
 
 # Errors inner dependency
 BucketExample/
-package-lock.json
+yarn.lock
