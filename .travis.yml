@@ -11,7 +11,7 @@ node_js:
   - "10"
   - "12"
 env:
-  - NODE_ENV = test
+  - NODE_ENV=test
 install:
   - npm install
   - npm install -g codecov
