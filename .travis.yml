@@ -19,4 +19,4 @@ install:
   - npm install -g mocha
 script:
   - npm run test_travis
-  - codecov --root ..
+  - codecov --root .nyc_output
