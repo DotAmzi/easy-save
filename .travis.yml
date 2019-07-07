@@ -19,4 +19,4 @@ install:
   - npm install -g mocha
 script:
   - npm run test_travis
-  - codecov --root .. --disable gcov -f .nyc_output -t 8026a7f2-5eb0-487c-9510-d2c7469eac5d
+  - codecov --root .. --disable gcov -f coverage -t 8026a7f2-5eb0-487c-9510-d2c7469eac5d
