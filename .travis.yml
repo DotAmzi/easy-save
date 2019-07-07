@@ -11,11 +11,11 @@ node_js:
   - "10"
   - "12"
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
   - npm install -g npm
 install:
   - npm install
   - npm install -g codecov
 script:
+  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
   - npm test
   - codecov
