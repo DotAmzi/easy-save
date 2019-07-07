@@ -10,9 +10,10 @@ node_js:
   - "8"
   - "10"
   - "12"
+env:
+  - NODE_ENV = test
 install:
   - npm install
-before_script:
   - npm install -g codecov
   - npm install -g nyc
   - npm install -g mocha
