@@ -12,7 +12,10 @@ node_js:
   - "12"
 install:
   - npm install
-  - npm install codecov
+before_script:
+  - npm install -g codecov
+  - npm install -g nyc
+  - npm install -g mocha
 script:
-  - npm test
-  - ./node_modules/.bin/codecov
+  - npm run test_travis
+  - codecov

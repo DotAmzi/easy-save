@@ -4,7 +4,8 @@
   "description": "Save file on disk or AWS S3",
   "main": "./lib/save-file.js",
   "scripts": {
-    "test": "set NODE_ENV=test ./node_modules/.bin/nyc --reporter=text-summary ./node_modules/.bin/mocha ./test --require babel-core/register --timeout=8000 --recursive -A"
+    "test_travis": "nyc --reporter=text-summary mocha test --require babel-core/register --timeout=8000 --recursive -A",
+    "test": "NODE_ENV=test ./node_modules/.bin/nyc --reporter=text-summary ./node_modules/.bin/mocha test --require babel-core/register --timeout=8000 --recursive -A"
   },
   "repository": {
     "type": "git",
