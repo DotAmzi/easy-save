@@ -12,9 +12,7 @@ node_js:
   - "12"
 install:
   - npm install
-  - npm install -g npm
-  - npm install -g codecov
+  - npm install codecov
 script:
-  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
   - npm test
-  - codecov
+  - ./node_modules/.bin/codecov
