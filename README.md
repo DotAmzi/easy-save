@@ -1,7 +1,7 @@
 
 # Easy Save
 
-![](https://img.shields.io/badge/NodeJS-4.0.0-green.svg)
+![](https://img.shields.io/badge/NodeJS-6.0.0-green.svg)
 ![](https://img.shields.io/badge/license-MIT-green.svg)
 [![Build Status](https://travis-ci.org/DotAmzi/easy-save.svg?branch=master)](https://travis-ci.org/DotAmzi/easy-save)
 
