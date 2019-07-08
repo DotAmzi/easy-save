@@ -36,7 +36,7 @@
     "README.md"
   ],
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 6.0"
   },
   "devDependencies": {
     "assert": "^1.4.1",
