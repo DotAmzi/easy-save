@@ -3,7 +3,7 @@ os:
   - windows
   - linux
   - osx
-sudo: true
+sudo: false
 node_js:
   - "4"
   - "6"
