@@ -1,8 +1,7 @@
-import os from 'os';
-import fs from 'fs';
-import AWSmock from 'mock-aws-s3';
-import AWS from 'aws-sdk';
 import isBase64 from 'is-base64';
+
+import {constructObjectAWS, saveFileAWS} from './aws.js'
+import {saveFileLocal} from './local-file.js';
 
 var instance = {};
 
@@ -15,25 +14,7 @@ class EasySave {
     this._target = target;
 
     if (this._type === 'aws') {
-      if(
-        params.AWS_S3_ACCESS_KEY === undefined ||
-        params.AWS_S3_ACCESS_KEY === null ||
-        params.AWS_S3_ACCESS_KEY === '' ||
-        params.AWS_S3_SECRET === '' ||
-        params.AWS_S3_SECRET === null ||
-        params.AWS_S3_SECRET === undefined        
-      ) {
-        throw new Error('AWS Key can not be empty');
-      }
-      AWS.config.accessKeyId = params.AWS_S3_ACCESS_KEY;
-      AWS.config.secretAccessKey = params.AWS_S3_SECRET;
-      if(process.env.NODE_ENV === 'test') {
-        this._params = new AWSmock.S3({
-          params: { Bucket: this._target.bucket }
-        });
-      }else{
-        this._params = new AWS.S3();
-      }
+      this._params = constructObjectAWS(params, this);
     } else {
       this._params = params;
     }
@@ -49,24 +30,8 @@ class EasySave {
       } else if(!isBase64(this.file)){
         reject('String not is Base64');
       } else {
-        var file = this.file.split(';base64,');
-        var typeFile = file[0].split(';')[0];
-        typeFile = typeFile.replace('data:', '');
-        var ext = typeFile.split('/')[1];
-        file = file[1];
-  
-        var date = new Date();
-        var ms = date.getTime();
-        if(this. _type === 'aws') {
-          let params = {
-            Bucket: `${this._target.bucket}/${this._target.folder}`,
-            Key: `${ms}.${ext}`,
-            Body: file,
-            ACL: 'authenticated-read',
-            ContentEncoding: typeFile,
-            ContentType: typeFile
-          };
-          
+        if(this._type === 'aws') {          
+          let params = saveFileAWS(this);
           this._params.upload(params, (err, data) => {
             if (err) {
               reject('Error on send file to AWS', err);
@@ -74,20 +39,13 @@ class EasySave {
               resolve(data.Location);
             }
           });
-        } else if (this. _type === 'local') {
-          const folder = this._params ? this._params : os.homedir() + '/uploads';
-          const destine = `${folder}/${this._target}`;
-          if (!fs.existsSync(folder)) {
-            fs.mkdirSync(folder);
-          }
-          if (!fs.existsSync(destine)) {
-            fs.mkdirSync(destine);
-          }
-          fs.writeFile(`${destine}/${ms}.${ext}`, file, {encoding: type}, err => {
-            if (err) {
-              reject('Error to write file on disk', err);
+        } else if (this._type === 'local') {
+          saveFileLocal(this)
+          .then(returnData => {
+            if (returnData.type === 'error') {
+              reject(returnData.message);
             } else {
-              resolve(`${destine}/${ms}.${ext}`);
+              resolve(returnData.message);
             }
           });
         } 

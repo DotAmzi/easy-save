@@ -11,14 +11,13 @@ gulp.task('clear', () => {
 });
 
 gulp.task('build', ['clear'], () =>
-  gulp.src(['src/save-file.js'])
-    .pipe(babel({
-      presets: ['es2015'],
-      compact: false
-    }))
-    .pipe(gulp.dest(DEST))
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
+  gulp.src(['src/**/*.js'])
+    // .pipe(babel({
+    //   presets: ['es2015'],
+    //   compact: false
+    // }))
+    // .pipe(uglify())
+    .pipe(rename({ extname: '.js' }))
     .pipe(gulp.dest(DEST))
 );
 

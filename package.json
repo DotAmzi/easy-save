@@ -32,6 +32,8 @@
   },
   "files": [
     "lib/save-file.js",
+    "lib/aws.js",
+    "lib/local-file.js",
     "LICENSE",
     "README.md"
   ],

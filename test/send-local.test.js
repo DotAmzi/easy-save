@@ -17,6 +17,7 @@ describe("Test to save local file", done => {
         return err;
       })
       .then(res => {
+        console.log(res)
         res.substr(0, 7).should.equal('./test/');
         done();
       });
