@@ -4,6 +4,9 @@ os:
   - linux
   - osx
 sudo: false
+branches:
+  only: 
+    - development
 node_js:
   - "6"
   - "8"
